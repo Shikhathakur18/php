@@ -26,7 +26,7 @@ $number    = preg_match('@[0-9]@', $password);
 $specialChars = preg_match('@[^\w]@', $password);
 
 if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)<8) {
-    $error['pass']="Enter password again";
+    $error['pass']="Enter 1 Uppercase,lowercase,numbers,special chars";
 }
 
 
