@@ -1,4 +1,5 @@
 <?php
+include "validate.php";
 if (isset($_POST['submit'])) {
 session_start();
 $error=array();
@@ -6,29 +7,8 @@ $email=array();
 $username=$_POST['email'];
 $password=$_POST['pass'];
 
-if (isset($_POST['email']) && empty($_POST['email'])) {
-    $error['email']="username required.";
-}
-else {
-    $email = ($_POST['email']);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $error['email'] = "Invalid username";
-    }
-}
-
-if(isset($_POST['pass']) && empty($_POST['pass'])) {
-    $error['pass']="password required.";
-}
-
-$uppercase = preg_match('@[A-Z]@', $password);
-$lowercase = preg_match('@[a-z]@', $password);
-$number    = preg_match('@[0-9]@', $password);
-$specialChars = preg_match('@[^\w]@', $password);
-
-if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password)<8) {
-    $error['pass']="Enter 1 Uppercase,lowercase,numbers,special chars";
-}
-
+echo email_validation($_POST['email']);
+echo password_validation($_POST['pass']);
 
 foreach($_SESSION['User'] as $key=>$values) {
             
