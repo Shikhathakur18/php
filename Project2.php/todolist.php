@@ -102,14 +102,13 @@ td,th
         echo "<tr>";
         if($_SESSION['User']) {
       ?>
-          <td><?php echo $_SESSION['User'][$key]['title'] ?></td>
+          <td><?php echo $values['title'] ?></td>
           <td><?php echo"<a href=\"view.php?id=".$values['id']."\">View</a>"?></td>
           <td><?php echo"<a href=\"edit.php?id=".$values['id']."\">Edit</a>"?></td>
           <td><?php echo"<a href=\"delete.php?id=".$values['id']."\">Delete</a>"?></td>
         <?php              
         }
-        print_r($_SESSION['User']);die;
-      }
+        }
         ?>
     </tr>
   </table>
